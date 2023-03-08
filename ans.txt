@@ -1,0 +1,464 @@
+Practical Exam Questions 
+Practical 1 
+A. Write a Java program that takes a number as input and prints its multiplication table upto 10
+class GFG {
+    public static void main(String[] args)
+    {
+        // number n for which we have to print the
+        // multiplication table.
+        int N = 7;
+ 
+        // looping from 1 to 10 to print the multiplication
+        // table of the number.
+        // using for loop
+        for (int i = 1; i <= 10; i++) {
+            // printing the N*i,ie ith multiple of N.
+            System.out.println(N + " * " + i + " = "
+                               + N * i);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+. B. Write a Java program to display the following pattern.  
+*****  
+**** 
+*** 
+**  
+ * 
+public class Star {
+    public static void main(String[] args) {
+        int rows = 5;
+        for(int i = rows; i >= 1; --i) {  //For Loop for Row 
+            for(int j = 1; j <= i; ++j) { //For Loop for Col
+                System.out.print("* "); //Prints *
+            }
+            System.out.println(); //Get to newline
+        }
+    }
+}
+
+Practical 2 
+A. Write a Java program to print the area and perimeter of a circle. 
+import java.util.Scanner;
+class Circle 
+{
+	public static void main(String[] args)
+	{
+		Float r, pi = 3.14f;
+		Scanner s = new Scanner(System.in);
+		System.out.println("nPlease enter the radius : ");
+		//Author -> ITVoyagers, visit -> itvoyagers.in
+		r = s.nextFloat();
+		System.out.println("nnArea of Circle = " + pi * r * r);
+		System.out.println("nnPerimeter of Circle = " + 2 * pi * r);
+		
+		System.out.println("nn");
+		//Author -> ITVoyagers, visit -> itvoyagers.in
+	}
+}
+
+
+
+
+
+B. Write a Java program to reverse a string 
+  public class Reverse   
+{    
+    public static void main(String[] args) {    
+        String string = "Dream big";    
+  
+        String reversedStr = "";    
+            
+
+        for(int i = string.length()-1; i >= 0; i--){    
+            reversedStr = reversedStr + string.charAt(i);    
+        }    
+            
+        System.out.println("Original string: " + string);    
+   
+        System.out.println("Reverse of given string: " + reversedStr);    
+    }    
+} 
+
+
+
+
+
+
+
+Practical 3 
+A. Write a Java program to add two binary numbers. 
+import java.util.Scanner;
+public class Exercise17 {
+ public static void main(String[] args)
+ {
+  long binary1, binary2;
+  int i = 0, remainder = 0;
+  int[] sum = new int[20];
+  Scanner in = new Scanner(System.in);
+
+  System.out.print("Input first binary number: ");
+  binary1 = in.nextLong();
+  System.out.print("Input second binary number: ");
+  binary2 = in.nextLong();
+
+  while (binary1 != 0 || binary2 != 0) 
+  {
+   sum[i++] = (int)((binary1 % 10 + binary2 % 10 + remainder) % 2);
+   remainder = (int)((binary1 % 10 + binary2 % 10 + remainder) / 2);
+   binary1 = binary1 / 10;
+   binary2 = binary2 / 10;
+  }
+  if (remainder != 0) {
+   sum[i++] = remainder;
+  }
+  --i;
+  System.out.print("Sum of two binary numbers: ");
+  while (i >= 0) {
+   System.out.print(sum[i--]);
+  }
+   System.out.print("\n");  
+ }
+}
+
+B. Write a Java program to convert a decimal number to binary number and vice versa
+import java.util.*;
+class DectoBin
+{
+public static void main(String arg[])	
+{	
+ 
+    Scanner sc=new Scanner(System.in);
+    System.out.println("Enter a decimal number");
+    int n=sc.nextInt();
+    int  bin[]=new int[100];
+    int i = 0;
+    while(n > 0)
+    {
+    bin[i++] = n%2;
+       n = n/2;
+    }
+   System.out.print("Binary number is : ");
+    for(int j = i-1;j >= 0;j--)
+   {
+       System.out.print(bin[j]);
+   }
+}
+}
+
+ Practical 4 
+A. Write a Java program to count the letters, spaces, numbers and other characters of an input string. 
+import java.util.Scanner;
+public class Exercise38 {
+    
+ public static void main(String[] args) {
+		String test = "Aa kiu, I swd skieo 236587. GH kiu: sieo?? 25.33";
+		count(test);
+
+	}
+	public static void count(String x){
+		char[] ch = x.toCharArray();
+		int letter = 0;
+		int space = 0;
+		int num = 0;
+		int other = 0;
+		for(int i = 0; i < x.length(); i++){
+			if(Character.isLetter(ch[i])){
+				letter ++ ;
+			}
+			else if(Character.isDigit(ch[i])){
+				num ++ ;
+			}
+			else if(Character.isSpaceChar(ch[i])){
+				space ++ ;
+			}
+			else{
+				other ++;
+			}
+		}
+		System.out.println("The string is : Aa kiu, I swd skieo 236587. GH kiu: sieo?? 25.33");
+		System.out.println("letter: " + letter);
+		System.out.println("space: " + space);
+		System.out.println("number: " + num);
+		System.out.println("other: " + other);
+			}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+B. Implement a Java function that calculates the sum of digits for a given char array consisting of the  digits '0' to '9'. The function should return the digit sum as a long value. 
+import java.util.Scanner;  
+public class SumOfDigitsExample1   
+{  
+public static void main(String args[])  
+{  
+int number, digit, sum = 0;  
+Scanner sc = new Scanner(System.in);  
+System.out.print("Enter the number: ");  
+number = sc.nextInt();  
+while(number > 0)  
+{  
+digit = number % 10;  
+sum = sum + digit;  
+number = number / 10;  
+}  
+System.out.println("Sum of Digits: "+sum);  
+}  
+}  
+
+
+
+
+
+
+
+
+
+
+Practical 5 
+A. Write a java program to implement single level inheritance. 
+class Shape {
+   public void display() {
+      System.out.println("Inside display");
+   }
+}
+class Rectangle extends Shape {
+   public void area() {
+      System.out.println("Inside area");
+   }
+}
+public class Tester {
+   public static void main(String[] arguments) {
+      Rectangle rect = new Rectangle();
+      rect.display();
+      rect.area();
+   }
+}
+
+
+
+
+
+
+
+B. Write a java program to implement multiple inheritance. 
+interface Backend {
+  // abstract class
+  public void connectServer();
+}
+class Frontend {
+  public void responsive(String str) {
+    System.out.println(str + " can also be used as frontend.");
+  }
+}
+// Language extends Frontend class
+// Language implements Backend interface
+class Language extends Frontend implements Backend {
+  String language = "Java";
+  // implement method of interface
+  public void connectServer() {
+    System.out.println(language + " can be used as backend language.");
+  }
+  public static void main(String[] args) {
+    // create object of Language class
+    Language java = new Language();
+    java.connectServer();
+    // call the inherited method of Frontend class
+    java.responsive(java.language);
+  }
+
+}
+
+
+
+
+
+
+Practical 6 
+A. Create a package, Add the necessary classes and import the package in java class.
+Add.java
+package p1;  
+import java.util.*;  
+public class Add  
+{  
+int s;  
+public void sum()  
+{  
+System.out.print("Enter the first number: ");  
+Scanner scan=new Scanner(System.in);  
+int x=scan.nextInt();  
+System.out.print("Enter the second number: ");  
+Scanner scan1=new Scanner(System.in);  
+int y=scan1.nextInt();  
+s=x+y;  
+System.out.println("sum="+s);  
+}  
+}  
+Sub.java
+package p2;  
+import java.util.*;  
+public class Sub  
+{  
+int d;  
+public void diff()  
+{  
+System.out.print("Enter the first number: ");  
+Scanner scan=new Scanner(System.in);  
+int x=scan.nextInt();  
+System.out.print("Enter the second number: ");  
+Scanner scan1=new Scanner(System.in);  
+int y=scan1.nextInt();  
+d=x-y;  
+System.out.println("Difference="+d);  
+}  
+}  
+Mult.java
+package p3;  
+import java.util.*;  
+public class Mult  
+{  
+int m;  
+public void pro()  
+{  
+System.out.print("Enter the first number: ");  
+Scanner scan=new Scanner(System.in);  
+int x=scan.nextInt();  
+System.out.print("Enter the second number: ");  
+Scanner scan1=new Scanner(System.in);  
+int y=scan1.nextInt();  
+m=x*y;  
+System.out.println("Product="+m);  
+}  
+}  
+Div.java
+package p4;  
+import java.util.*;  
+public class Div  
+{  
+int q;  
+public void divd()  
+{  
+System.out.print("Enter the first number: ");  
+Scanner scan=new Scanner(System.in);      
+int x=scan.nextInt();  
+System.out.print("Enter the second number: ");  
+Scanner scan1=new Scanner(System.in);  
+int y=scan1.nextInt();  
+q=x/y;  
+System.out.println("Division="+q);  
+}  
+}  
+package p5;  
+//importing pre-defined package  
+import java.util.*;  
+//importing user-defined package  
+import p1.Add;  
+import p2.Sub;  
+import p3.Mult;  
+import p4.Div;  
+public class Calculator  
+{  
+public static void main(String args[])  
+{  
+System.out.print("Enter your choice: ");  
+Scanner scan=new Scanner(System.in);  
+int t=scan.nextInt();  
+switch(t)  
+{  
+case 1:  
+Add a=new Add();  
+a.sum();  
+break;  
+case 2:  
+Sub s=new Sub();  
+s.diff();  
+break;  
+case 3:  
+Mult m=new Mult();  
+m.pro();  
+break;  
+case 4:  
+Div d=new Div();  
+d.divd();  
+break;  
+}  
+}  
+}  
+
+
+ B. Write a java program to implement the vectors 
+import java.util.Vector;
+
+class Main {
+    public static void main(String[] args) {
+        Vector<String> mammals= new Vector<>();
+
+        // Using the add() method
+        mammals.add("Dog");
+        mammals.add("Horse");
+
+        // Using index number
+        mammals.add(2, "Cat");
+        System.out.println("Vector: " + mammals);
+
+        // Using addAll()
+        Vector<String> animals = new Vector<>();
+        animals.add("Crocodile");
+
+        animals.addAll(mammals);
+        System.out.println("New Vector: " + animals);
+    }
+}
+
+
+
+Practical 7 
+A. Write a java program to implement thread life cycle. 
+B. Write a java program to implement multithreading.
+class MultithreadingDemo implements Runnable {
+	public void run()
+	{
+		try {
+			// Displaying the thread that is running
+			System.out.println(
+				"Thread " + Thread.currentThread().getId()
+				+ " is running");
+		}
+		catch (Exception e) {
+			System.out.println("Exception is caught");
+		}
+	}
+}
+class Multithread {
+	public static void main(String[] args)
+	{
+		int n = 8; // Number of threads
+		for (int i = 0; i < n; i++) {
+			Thread object
+				= new Thread(new MultithreadingDemo());
+			object.start();
+		}
+	}
+}
+
+
